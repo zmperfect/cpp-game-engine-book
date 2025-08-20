@@ -9,19 +9,19 @@ using std::ifstream;
 using std::ios;
 using timetool::StopWatch;
 
-Texture2D* Texture2D::LoadFromFile(std::string& image_file_path)
+Texture2D* Texture2D::LoadFromFile(const std::string& image_file_path)
 {
-    Texture2D* texture2d=new Texture2D();
+    auto texture2d=new Texture2D();
 
     StopWatch stopwatch;
     stopwatch.start();
         //读取 cpt 压缩纹理文件
         ifstream input_file_stream(image_file_path,ios::in | ios::binary);
         CptFileHead cpt_file_head;
-        input_file_stream.read((char*)&cpt_file_head, sizeof(CptFileHead));
+        input_file_stream.read(reinterpret_cast<char*>(&cpt_file_head), sizeof(CptFileHead));
 
-        unsigned char* data =(unsigned char*)malloc(cpt_file_head.compress_size_);
-        input_file_stream.read((char*)data, cpt_file_head.compress_size_);
+        unsigned char* data =static_cast<unsigned char *>(malloc(cpt_file_head.compress_size_));
+        input_file_stream.read(reinterpret_cast<char *>(data), cpt_file_head.compress_size_);
         input_file_stream.close();
     stopwatch.stop();
     std::int64_t load_cpt_cost = stopwatch.milliseconds();

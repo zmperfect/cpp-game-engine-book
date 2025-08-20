@@ -3,8 +3,7 @@
 // 顶点坐标 顶点颜色
 //
 
-#ifndef UNTITLED_VERTEXDATA_H
-#define UNTITLED_VERTEXDATA_H
+#pragma once
 
 #include <glm/glm.hpp>
 
@@ -72,5 +71,3 @@ static const Vertex kVertexs[36] ={
     glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec4(1.0f,1.0f,1.0f,1.0f),   glm::vec2(0.0f, 1.0f),
 };
 
-
-#endif //UNTITLED_VERTEXDATA_H

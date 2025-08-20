@@ -40,7 +40,7 @@ void init_opengl()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     //创建窗口
-    window = glfwCreateWindow(960, 640, "Simple example", NULL, NULL);
+    window = glfwCreateWindow(960, 640, "Simple example", nullptr, nullptr);
     if (!window)
     {
         glfwTerminate();
@@ -60,7 +60,7 @@ void compile_shader()
     //创建顶点Shader
     vertex_shader = glCreateShader(GL_VERTEX_SHADER);
     //指定Shader源码
-    glShaderSource(vertex_shader, 1, &vertex_shader_text, NULL);
+    glShaderSource(vertex_shader, 1, &vertex_shader_text, nullptr);
     //编译Shader
     glCompileShader(vertex_shader);
     //获取编译结果
@@ -69,14 +69,14 @@ void compile_shader()
     if (compile_status == GL_FALSE)
     {
         GLchar message[256];
-        glGetShaderInfoLog(vertex_shader, sizeof(message), 0, message);
+        glGetShaderInfoLog(vertex_shader, sizeof(message), nullptr, message);
         cout<<"compile vs error:"<<message<<endl;
     }
 
     //创建片段Shader
     fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
     //指定Shader源码
-    glShaderSource(fragment_shader, 1, &fragment_shader_text, NULL);
+    glShaderSource(fragment_shader, 1, &fragment_shader_text, nullptr);
     //编译Shader
     glCompileShader(fragment_shader);
     //获取编译结果
@@ -85,7 +85,7 @@ void compile_shader()
     if (compile_status == GL_FALSE)
     {
         GLchar message[256];
-        glGetShaderInfoLog(fragment_shader, sizeof(message), 0, message);
+        glGetShaderInfoLog(fragment_shader, sizeof(message), nullptr, message);
         cout<<"compile fs error:"<<message<<endl;
     }
 
@@ -103,12 +103,12 @@ void compile_shader()
     if (link_status == GL_FALSE)
     {
         GLchar message[256];
-        glGetProgramInfoLog(program, sizeof(message), 0, message);
+        glGetProgramInfoLog(program, sizeof(message), nullptr, message);
         cout<<"link error:"<<message<<endl;
     }
 }
 
-int main(void)
+int main()
 {
     init_opengl();
 
@@ -127,7 +127,7 @@ int main(void)
 
         //获取画面宽高
         glfwGetFramebufferSize(window, &width, &height);
-        ratio = width / (float) height;
+        ratio = width / static_cast<float>(height);
 
         glViewport(0, 0, width, height);
 

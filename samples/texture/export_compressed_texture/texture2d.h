@@ -3,8 +3,7 @@
 // 图片加载与解析
 //
 
-#ifndef UNTITLED_TEXTURE2D_H
-#define UNTITLED_TEXTURE2D_H
+#pragma once
 
 #define STB_IMAGE_IMPLEMENTATION
 
@@ -18,12 +17,12 @@ private:
     {
 
     };
-    ~Texture2D(){};
+    ~Texture2D() = default;
 
 public:
-    static Texture2D* LoadFromFile(std::string& image_file_path);//加载一个图片文件
+    static Texture2D* LoadFromFile(const std::string& image_file_path);//加载一个图片文件
 
-    static void CompressImageFile(std::string& image_file_path,std::string& save_image_file_path);//从GPU中，将显存中保存的压缩好的纹理数据，下载到内存，并保存到硬盘。
+    static void CompressImageFile(const std::string& image_file_path,const std::string& save_image_file_path);//从GPU中，将显存中保存的压缩好的纹理数据，下载到内存，并保存到硬盘。
 public:
     int mipmap_level_;
     int width_;
@@ -44,4 +43,3 @@ public:
     };
 };
 
-#endif //UNTITLED_TEXTURE2D_H

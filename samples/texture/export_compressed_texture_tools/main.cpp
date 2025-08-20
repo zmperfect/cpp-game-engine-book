@@ -49,7 +49,7 @@ void init_opengl()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    window = glfwCreateWindow(960, 640, "Simple example", NULL, NULL);
+    window = glfwCreateWindow(960, 640, "Simple example", nullptr, nullptr);
     if (!window)
     {
         glfwTerminate();
@@ -67,14 +67,14 @@ void compile_shader()
     //创建顶点Shader
     vertex_shader = glCreateShader(GL_VERTEX_SHADER);
     //指定Shader源码
-    glShaderSource(vertex_shader, 1, &vertex_shader_text, NULL);
+    glShaderSource(vertex_shader, 1, &vertex_shader_text, nullptr);
     //编译Shader
     glCompileShader(vertex_shader);
 
     //创建片段Shader
     fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
     //指定Shader源码
-    glShaderSource(fragment_shader, 1, &fragment_shader_text, NULL);
+    glShaderSource(fragment_shader, 1, &fragment_shader_text, nullptr);
     //编译Shader
     glCompileShader(fragment_shader);
 
@@ -122,7 +122,7 @@ int main(int argc,char** argv)
 
     for (int i = 1; i < argc; ++i) {
         //从GPU中，将显存中保存的压缩好的纹理数据，下载到内存，并保存到硬盘。
-//    std::string src_image_file_path("../data/images/urban.jpg");
+//    std::string src_image_file_path("../../data/images/urban.jpg");
         std::string src_image_file_path(argv[i]);
 //    src_image_file_path= ReplaceAll(src_image_file_path,"\\","/");
         spdlog::info("src_image_file_path:{}",src_image_file_path);

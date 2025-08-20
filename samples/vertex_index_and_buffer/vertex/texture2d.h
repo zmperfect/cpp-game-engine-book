@@ -3,8 +3,7 @@
 // 图片加载与解析
 //
 
-#ifndef UNTITLED_TEXTURE2D_H
-#define UNTITLED_TEXTURE2D_H
+#pragma once
 
 #define STB_IMAGE_IMPLEMENTATION
 
@@ -43,4 +42,3 @@ public:
     };
 };
 
-#endif //UNTITLED_TEXTURE2D_H

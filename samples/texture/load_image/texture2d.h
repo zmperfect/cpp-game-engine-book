@@ -3,8 +3,7 @@
 // 图片加载与解析
 //
 
-#ifndef UNTITLED_TEXTURE2D_H
-#define UNTITLED_TEXTURE2D_H
+#pragma once
 
 #define STB_IMAGE_IMPLEMENTATION
 
@@ -27,5 +26,3 @@ public:
 
     GLenum gl_texture_format_;//纹理ID
 };
-
-#endif //UNTITLED_TEXTURE2D_H

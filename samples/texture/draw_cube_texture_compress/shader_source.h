@@ -2,8 +2,8 @@
 // Created by captain on 2021/3/25.
 //
 
-#ifndef UNTITLED_SHADERSOURCE_H
-#define UNTITLED_SHADERSOURCE_H
+#pragma once
+
 #pragma region 顶点Shader和片段Shader
 
 static const char* vertex_shader_text =
@@ -36,4 +36,4 @@ static const char* fragment_shader_text =
         "}\n";
 
 #pragma endregion
-#endif //UNTITLED_SHADERSOURCE_H
+

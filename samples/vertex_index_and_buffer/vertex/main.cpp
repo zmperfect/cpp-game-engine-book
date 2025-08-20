@@ -35,7 +35,7 @@ void init_opengl()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-    window = glfwCreateWindow(960, 640, "Simple example", NULL, NULL);
+    window = glfwCreateWindow(960, 640, "Simple example", nullptr, nullptr);
     if (!window)
     {
         glfwTerminate();
@@ -53,14 +53,14 @@ void compile_shader()
     //创建顶点Shader
     vertex_shader = glCreateShader(GL_VERTEX_SHADER);
     //指定Shader源码
-    glShaderSource(vertex_shader, 1, &vertex_shader_text, NULL);
+    glShaderSource(vertex_shader, 1, &vertex_shader_text, nullptr);
     //编译Shader
     glCompileShader(vertex_shader);
 
     //创建片段Shader
     fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
     //指定Shader源码
-    glShaderSource(fragment_shader, 1, &fragment_shader_text, NULL);
+    glShaderSource(fragment_shader, 1, &fragment_shader_text, nullptr);
     //编译Shader
     glCompileShader(fragment_shader);
 
@@ -79,11 +79,11 @@ void CreateTexture(std::string image_file_path)
     texture2d=Texture2D::LoadFromFile(image_file_path);
 }
 
-int main(void)
+int main()
 {
     init_opengl();
 
-    CreateTexture("../data/images/urban.cpt");
+    CreateTexture("../../data/images/urban.cpt");
 
     compile_shader();
 
@@ -133,11 +133,13 @@ int main(void)
 
             //启用顶点Shader属性(a_color)，指定与顶点颜色数据进行关联
             glEnableVertexAttribArray(vcol_location);
-            glVertexAttribPointer(vcol_location, 4, GL_FLOAT, false, sizeof(Vertex), ((float*)kVertexs) + 3);
+            // glVertexAttribPointer(vcol_location, 4, GL_FLOAT, false, sizeof(Vertex), ((float*)kVertexs) + 3);
+            glVertexAttribPointer(vcol_location, 4, GL_FLOAT, false, sizeof(Vertex), reinterpret_cast<const float*>(kVertexs) + 3);
 
             //启用顶点Shader属性(a_uv)，指定与顶点UV数据进行关联
             glEnableVertexAttribArray(a_uv_location);
-            glVertexAttribPointer(a_uv_location, 2, GL_FLOAT, false, sizeof(Vertex), ((float*)kVertexs) + 3 + 4);
+            // glVertexAttribPointer(a_uv_location, 2, GL_FLOAT, false, sizeof(Vertex), ((float*)kVertexs) + 3 + 4);
+            glVertexAttribPointer(a_uv_location, 2, GL_FLOAT, false, sizeof(Vertex), (reinterpret_cast<const float*>(kVertexs)) + 3 + 4);
 
             //上传mvp矩阵
             glUniformMatrix4fv(mvp_location, 1, GL_FALSE, &mvp[0][0]);
@@ -153,7 +155,7 @@ int main(void)
             //void glDrawArrays(GLenum mode,GLint first,GLsizei count);
             glDrawArrays(GL_TRIANGLES, 0, 6*6);//表示从第0个顶点开始画，总共画6个面，每个面6个顶点。
         }
-        
+
 
         glfwSwapBuffers(window);
         glfwPollEvents();

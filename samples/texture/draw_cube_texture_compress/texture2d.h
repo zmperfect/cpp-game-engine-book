@@ -3,8 +3,7 @@
 // 图片加载与解析
 //
 
-#ifndef UNTITLED_TEXTURE2D_H
-#define UNTITLED_TEXTURE2D_H
+#pragma once
 
 #define STB_IMAGE_IMPLEMENTATION
 
@@ -14,11 +13,11 @@
 class Texture2D
 {
 private:
-    Texture2D(){};
-    ~Texture2D(){};
+    Texture2D() = default;
+    ~Texture2D() = default;
 
 public:
-    static Texture2D* LoadFromFile(std::string& image_file_path);//加载一个图片文件
+    static Texture2D* LoadFromFile(const std::string& image_file_path);//加载一个图片文件
 
 public:
     int width_;
@@ -28,4 +27,3 @@ public:
     GLuint gl_texture_id_;//纹理ID
 };
 
-#endif //UNTITLED_TEXTURE2D_H
