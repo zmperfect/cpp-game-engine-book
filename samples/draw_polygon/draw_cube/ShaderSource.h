@@ -2,8 +2,7 @@
 // Created by captain on 2021/3/25.
 //
 
-#ifndef UNTITLED_SHADERSOURCE_H
-#define UNTITLED_SHADERSOURCE_H
+#pragma once
 
 //顶点着色器代码
 static const char* vertex_shader_text =
@@ -30,4 +29,3 @@ static const char* fragment_shader_text =
         "    gl_FragColor = v_color;\n"
         "}\n";
 
-#endif //UNTITLED_SHADERSOURCE_H

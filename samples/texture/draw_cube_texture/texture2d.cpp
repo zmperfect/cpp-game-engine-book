@@ -5,9 +5,9 @@
 #include "texture2d.h"
 #include "stb/stb_image.h"
 
-Texture2D* Texture2D::LoadFromFile(std::string& image_file_path)
+Texture2D* Texture2D::LoadFromFile(const std::string& image_file_path)
 {
-    Texture2D* texture2d=new Texture2D();
+    auto texture2d=new Texture2D();
 
     stbi_set_flip_vertically_on_load(true);//翻转图片，解析出来的图片数据从左下角开始，这是因为OpenGL的纹理坐标起始点为左下角。
     int channels_in_file;//通道数

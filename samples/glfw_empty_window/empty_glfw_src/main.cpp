@@ -2,16 +2,14 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
-int main(void)
+int main()
 {
-    GLFWwindow* window;
-
     /* 初始化glfw */
     if (!glfwInit())
         return -1;
 
     /* 创建一个Window 和 OpenGL上下文 */
-    window = glfwCreateWindow(960, 640, "Hello World", NULL, NULL);
+   GLFWwindow* window = glfwCreateWindow(960, 640, "Hello World", NULL, NULL);
     if (!window)
     {
         //创建失败就退出

@@ -3,8 +3,7 @@
 // 顶点坐标 顶点颜色
 //
 
-#ifndef UNTITLED_VERTEXDATA_H
-#define UNTITLED_VERTEXDATA_H
+#pragma once
 
 #include <glm/glm.hpp>
 
@@ -120,4 +119,3 @@ static const glm::vec4 kColors[36] = {
         glm::vec4(0, 0, 1, 1),
 };
 
-#endif //UNTITLED_VERTEXDATA_H
