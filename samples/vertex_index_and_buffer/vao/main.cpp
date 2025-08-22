@@ -41,7 +41,7 @@ void init_opengl()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    window = glfwCreateWindow(960, 640, "Simple example", NULL, NULL);
+    window = glfwCreateWindow(960, 640, "Simple example", nullptr, nullptr);
     if (!window)
     {
         glfwTerminate();
@@ -59,14 +59,14 @@ void compile_shader()
     //创建顶点Shader
     vertex_shader = glCreateShader(GL_VERTEX_SHADER);
     //指定Shader源码
-    glShaderSource(vertex_shader, 1, &vertex_shader_text, NULL);
+    glShaderSource(vertex_shader, 1, &vertex_shader_text, nullptr);
     //编译Shader
     glCompileShader(vertex_shader);
 
     //创建片段Shader
     fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
     //指定Shader源码
-    glShaderSource(fragment_shader, 1, &fragment_shader_text, NULL);
+    glShaderSource(fragment_shader, 1, &fragment_shader_text, nullptr);
     //编译Shader
     glCompileShader(fragment_shader);
 
@@ -128,13 +128,13 @@ void GeneratorBufferObject()
 }
 
 
-int main(void)
+int main()
 {
     VertexRemoveDumplicate();
 
     init_opengl();
 
-    CreateTexture("../data/images/urban.cpt");
+    CreateTexture("../../data/images/urban.cpt");
 
 
     compile_shader();

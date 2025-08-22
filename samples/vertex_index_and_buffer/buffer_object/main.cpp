@@ -104,7 +104,7 @@ int main(void)
 
     init_opengl();
 
-    CreateTexture("../data/images/urban.cpt");
+    CreateTexture("../../data/images/urban.cpt");
 
     GeneratorBufferObject();
 

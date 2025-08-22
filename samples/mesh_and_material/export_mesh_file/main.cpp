@@ -127,11 +127,11 @@ void GeneratorBufferObject()
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
-int main(void)
+int main()
 {
     VertexRemoveDumplicate();
-    //需要手动创建 model 文件夹。
-    ExportMesh("../data/model/cube.mesh");
+    //不需要手动创建 model 文件夹。
+    ExportMesh("../../data/model/cube.mesh");
 
     return 0;
 

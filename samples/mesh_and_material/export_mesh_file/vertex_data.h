@@ -3,13 +3,13 @@
 // 顶点坐标 顶点颜色
 //
 
-#ifndef UNTITLED_VERTEXDATA_H
-#define UNTITLED_VERTEXDATA_H
+#pragma once
 
 
 #include <vector>
 #include <algorithm>
 #include <fstream>
+#include <filesystem>
 #include <glm/glm.hpp>
 
 using std::vector;
@@ -120,7 +120,13 @@ struct MeshFileHead{
 };
 
 //导出Mesh文件
-static void ExportMesh(string save_path){
+static void ExportMesh(const string& save_path){
+    // 当前路径不存在则创建
+    std::filesystem::path p(save_path);
+    if (!std::filesystem::exists(p.parent_path())) {
+        std::filesystem::create_directories(p.parent_path());
+    }
+
     ofstream output_file_stream(save_path,ios::out | ios::binary);
 
     MeshFileHead mesh_file_head;
@@ -139,4 +145,3 @@ static void ExportMesh(string save_path){
     output_file_stream.close();
 }
 
-#endif //UNTITLED_VERTEXDATA_H
