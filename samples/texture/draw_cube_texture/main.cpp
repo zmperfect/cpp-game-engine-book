@@ -9,6 +9,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <filesystem>
 
 #include "vertex_data.h"
 #include "shader_source.h"
